@@ -23,8 +23,13 @@ const port = process.env.PORT || 4000;
 await connectDB();
 await connectCloudinary();
 
-const allowedOrigins = ['https://ecommerce-greencart-1.onrender.com/'];
+const allowedOrigins = ['*',
+  'https://ecommerce-greencart-1.onrender.com/',
+  'http://127.0.0.1:5173', // Add this for local development
+  'http://localhost:5173', // Add this for local development
+];
 
+app.use(cors({ origin: allowedOrigins, credentials: true }));
 app.post('/stripe', express.raw({ type: 'application/json' }), stripeWebhooks);
 
 app.use(express.json());

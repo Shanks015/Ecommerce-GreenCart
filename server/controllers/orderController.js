@@ -12,11 +12,22 @@ export const PlaceOrderCOD = async (req, res) => {
     }
 
     // Calculate Amount Using Items (Avoid using async/await inside reduce)
-    let amount = await items.reduce(async (acc, item) => {
+    
+
+    let amount = 0;
+    for (const item of items) {
+      const product = await Product.findById(item.product);
+      if (!product) {
+        return res.json({ success: false, message: "Product not found" });
+      }
+      amount += product.offerPrice * item.quantity;
+    }
+    
+    /* let amount = await items.reduce(async (acc, item) => {
       const product = await Product.findById(item.product);
       return (await acc) + (product.offerPrice * item.quantity);
-    })
-
+    }) */
+//}, 0)
     // Add Tax Charge (2%)
     amount += Math.floor(amount * 0.02);
 

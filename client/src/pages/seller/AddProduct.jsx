@@ -21,8 +21,8 @@ const AddProduct = () => {
         name,
         description: description.split("\n"),
         category,
-        price: Number(price),
-        offerPrice: Number(offerPrice),
+        price,
+        offerPrice,
       };
 
       const formData = new FormData();
@@ -31,7 +31,9 @@ const AddProduct = () => {
         formData.append("images", files[i]);
       }
 
-      const { data } = await axios.post("/api/product/add", formData);
+      const { data } = await axios.post("/api/product/add", formData, {
+        withCredentials: true,
+      });
 
       if (data.success) {
         toast.success(data.message);
@@ -45,7 +47,8 @@ const AddProduct = () => {
         toast.error(data.message);
       }
     } catch (error) {
-      toast.error(error.response?.data?.message || error.message);
+      //toast.error(error.response?.data?.message || error.message);
+      toast.error(error.message)
     }
   };
 

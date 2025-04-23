@@ -21,21 +21,8 @@ export const AppContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState({});
   const [searchQuery, setSearchQuery] = useState({});
   
-  const fetchProducts = async () => {
-    try {
-      const {data} = await axios.get('/api/product/list')
-      if (data.success) {
-        setProducts(data.products)
-      }else{
-        toast.error(data.message)
-      }
-    } catch (error) {
-      toast.error(error.message)
-
-    }
-  };
-
-  //Fetch Seller Status
+  
+  // Fetch User Admin Status, User Data and Cart Items
   const fetchSeller = async()=>{
     try {
       const {data} = await axios.get('/api/seller/is-auth');
@@ -49,8 +36,22 @@ export const AppContextProvider = ({ children }) => {
       toast.error(error.message)
     }
   }
+  
 
-  // Fetch User Admin Status, User Data and Cart Items
+  //Fetch Seller Status
+  const fetchProducts = async () => {
+    try {
+      const {data} = await axios.get('/api/product/list')
+      if (data.success) {
+        setProducts(data.products)
+      }else{
+        toast.error(data.message)
+      }
+    } catch (error) {
+      toast.error(error.message)
+    }
+  };
+  
   const fetchUser = async () => {
     try {
       const { data } = await axios.get("/api/user/is-auth");
