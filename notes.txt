@@ -1,0 +1,42 @@
+For running project:
+right click on server folder and click on open integrated terminal
+server = npm start
+
+right click on client folder and click on open integrated terminal
+client = npm run dev
+
+
+/seller 
+username = admin@ex.com
+password = admin123
+
+
+To upload images go to localhost:517/seller on website the login using credentials 
+then click on upload image then go to this path greencart\client\src\assets
+
+then select images and upload details
+
+
+mongodb = https://cloud.mongodb.com/v2/6807aa2e452bb14eb845441f#/overview
+
+stripe cards details = 
+
+
+Brand	Number	CVC	Date
+
+Visa	4242424242424242	
+
+Visa (debit)	4000056655665556	
+
+Mastercard	5555555555554444	
+
+Mastercard (2-series)	2223003122003222	
+
+Mastercard (debit)	5200828282828210	
+
+Mastercard (prepaid)	5105105105105100	
+
+American Express	378282246310005	Any 4 digits	Any future date
+American Express	371449635398431	Any 4 digits	Any future date
+
+https://docs.stripe.com/testing?testing-method=card-numbers#visa

@@ -1,3 +1,13 @@
 node_modules
 .env
+.env.local
+.env.*.local
 dist
+dist-ssr
+*.local
+.vscode
+.idea
+.DS_Store
+server_error.txt
+test_mongo.js
+README_utf8.md
