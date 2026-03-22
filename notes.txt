@@ -17,8 +17,6 @@ then click on upload image then go to this path greencart\client\src\assets
 then select images and upload details
 
 
-mongodb = https://cloud.mongodb.com/v2/6807aa2e452bb14eb845441f#/overview
-
 stripe cards details = 
 
 
